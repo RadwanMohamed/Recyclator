@@ -1,0 +1,13 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "illuminate/database": "^5.6",
+        "robmorgan/phinx": "^0.9.2"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "App\\" : "app"
+        }
+    }
+
+}
