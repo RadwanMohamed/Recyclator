@@ -23,7 +23,6 @@ class ValidationErrorsMiddleware extends Middleware
     {
         $Response = $next($Request,$Response);
         if ($this->checkerrors()){
-            $Response = $next($Request,$Response);
             return $Response;
         }
         $response['errors'] = $_SESSION['errors'];

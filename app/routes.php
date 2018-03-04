@@ -6,9 +6,9 @@
  * Time: 11:16 AM
  */
 $app->get('/',"HomeController:index");
-$app->post('/signup',"AuthController:signup");
-$app->post('/signin',"AuthController:signin");
-$app->post('/signout',"AuthController:signOut");
+$app->post('/signup',"AuthController:userSignup");
+$app->post('/signin',"AuthController:userSignin");
+$app->post('/signout',"AuthController:userSignOut");
 
 /*
  *

@@ -23,11 +23,10 @@ class AuthController extends Controller
      * @param $Response
      * @return type json
      */
-    public function signup($Request,$Response){
+    public function userSignup($Request,$Response){
         $validation = $this->UserValidation->validateUserToSignup($Request);
 
         if ($validation->failed()){
-
             $user =  User::create([
                 'FirstName' => $Request->getParam('FirstName'),
                 'LastName'  => $Request->getParam('LastName'),
@@ -59,7 +58,7 @@ class AuthController extends Controller
      * @param $Response
      * @return mixed
      */
-    public function signin($Request,$Response){
+    public function userSignin($Request,$Response){
         $validation = $this->UserValidation->validateUserToSignin($Request);
         if ($validation->failed()) {
             $auth = $this->Auth->attempt($Request->getParam('Email'), $Request->getParam('Password'));
@@ -81,8 +80,8 @@ class AuthController extends Controller
      * @param $Response
      * @return mixed
      */
-    public function signOut($Request,$Response){
-        $this->Auth->logOut();
+    public function userSignOut($Request,$Response){
+        $log = $this->Auth->logOut();
         $response['status']='success';
         $response['message']='you are logged out';
         return $Response->withJson($response,200);
