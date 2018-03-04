@@ -25,7 +25,9 @@ class AuthController extends Controller
      */
     public function signup($Request,$Response){
         $validation = $this->UserValidation->validateUserToSignup($Request);
+
         if ($validation->failed()){
+
             $user =  User::create([
                 'FirstName' => $Request->getParam('FirstName'),
                 'LastName'  => $Request->getParam('LastName'),

@@ -21,12 +21,15 @@ class ValidationErrorsMiddleware extends Middleware
      */
     public function __invoke($Request,$Response,$next)
     {
-        //var_dump($_SESSION);
         $Response = $next($Request,$Response);
+        if ($this->checkerrors()){
+            $Response = $next($Request,$Response);
+            return $Response;
+        }
         $response['errors'] = $_SESSION['errors'];
+        $response['status'] = 'failed';
         $this->removeErrors();
-
-        return $Response->withJson($response);
+        return $Response->withJson($response,400);
     }
 
     /**
@@ -34,7 +37,7 @@ class ValidationErrorsMiddleware extends Middleware
      * @return bool
      */
     private function checkerrors(){
-        return !isset($_SESSION['errors']);
+        return ($_SESSION['errors'] == null);
     }
     /*
      * remove errors from sessions after take it
@@ -44,15 +47,3 @@ class ValidationErrorsMiddleware extends Middleware
     }
 }
 
-/**
- * {
-
-"FirstName": "omarfffffahoofffcom",
-"LastName": "fhffh",
-"Phone": "012011478",
-"Image": "Image",
-"district": "omarfffffcom",
-"Email": "omarfffff@yahoofff.com",
-"Password": "123456"
-}
- */
