@@ -9,6 +9,7 @@
 namespace App\API\Auth;
 
 
+use App\API\Models\Company;
 use App\API\Models\User;
 
 class Auth
@@ -60,4 +61,51 @@ class Auth
     }
 
 
+                // Company Auth functions
+
+    /**
+     * check if the company is exists or not
+     * @param $email
+     * @param $password
+     * @return bool
+     */
+
+    public function companyAttempt($email,$password){
+
+        $company = Company::where('email',$email)->first();
+        if(!$company){
+            return false;
+        }
+        if(password_verify($password,$company->Password)){
+            $_SESSION['company'] = $company->id;
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * checks if there is company stored in session
+     * @return bool
+     */
+
+    public function companyCheck(){
+        return isset($_SESSION['company']);
+    }
+
+    /**
+     * return company information that stored in session
+     * @return mixed
+     */
+
+    public function company(){
+        return User::find($_SESSION['company']);
+    }
+
+    /**
+     * destroy the session of the company
+     */
+    public function companyLogOut(){
+        unset($_SESSION['company']);
+    }
 }

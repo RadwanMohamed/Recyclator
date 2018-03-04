@@ -10,9 +10,15 @@ namespace App\API\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class User model
+ * @package App\API\Models
+ */
 class User extends Model
 {
-    //`FirstName`, `LastName`, `Email`, `Phone`, `Password`, `Image`, `district`, `HashTable`
+    /**
+     * @var array
+     */
     protected $fillable =[
         'FirstName','LastName','Email','Phone','Password','Image','district'
     ];

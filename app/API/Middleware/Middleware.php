@@ -20,6 +20,11 @@ class Middleware
     {
          $this->container=$container;
     }
+
+    /**
+     * @param $property
+     * @return mixed
+     */
     public function __get($property)
     {
         if($this->container->{$property}){

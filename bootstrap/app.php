@@ -35,7 +35,14 @@ $container['validator']=function ($container){
 $container['UserValidation']=function ($container){
     return new App\API\Validation\UserValidation($container);
 };
-
+/**
+ *  stores company validation  obj
+ * @param $container
+ * @return \App\API\Validation\CompanyValidation
+ */
+$container['CompanyValidation']=function ($container){
+    return new App\API\Validation\CompanyValidation($container);
+};
 
 /**
  * stores user HomeController  obj

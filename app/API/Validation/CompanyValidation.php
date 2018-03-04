@@ -2,41 +2,46 @@
 /**
  * Created by PhpStorm.
  * User: radwan
- * Date: 03/03/18
- * Time: 10:08 م
+ * Date: 04/03/18
+ * Time: 11:43 ص
  */
 
 namespace App\API\Validation;
+
 use Respect\Validation\Validator as V;
-class UserValidation extends Validator
+
+class CompanyValidation  extends Validator
 {
+    //`Name`, `Email`, `Phone`, `Bio`, `Password`, `District`, `Image`, `HashTable`, `LocationTarget`
+
     /**
-     * validate user information to sign up
+     * validate company information to sign up
      * @param $Request
      * @return $this
      */
-    public function validateUserToSignup($Request)
+    public function validateCompanyToSignup($Request)
     {
 
         $validation = $this->validate($Request,[
-            'FirstName' => v::noWhitespace()->notEmpty()->alpha(),
-            'LastName'  => v::noWhitespace()->notEmpty()->alpha(),
+            'Name' => v::noWhitespace()->notEmpty()->alpha(),
+            'Bio'  => v::noWhitespace()->notEmpty()->alpha(),
             'Email'     => v::noWhitespace()->notEmpty()->Email(),
             'Phone'     => v::noWhitespace()->notEmpty()->phone(),
             'Password'  => v::noWhitespace()->notEmpty(),
             'Image'     => v::noWhitespace()->notEmpty(),
-            'district'  => v::noWhitespace()->notEmpty()->alnum()
+            'district'  => v::noWhitespace()->notEmpty()->alnum(),
+            'LocationTarget' => v::noWhitespace()->notEmpty()->alnum()
 
         ]);
         return $this;
     }
 
     /**
-     * validate user form to log in
+     * validate company form to log in
      * @param $Request
      * @return $this
      */
-    public function validateUserToSignin($Request)
+    public function validateCompanyToSignin($Request)
     {
 
         $validation = $this->validate($Request,[
