@@ -36,7 +36,7 @@ class ValidationErrorsMiddleware extends Middleware
      * @return bool
      */
     private function checkerrors(){
-        return ($_SESSION['errors'] == null);
+        return (@$_SESSION['errors'] == null);
     }
     /*
      * remove errors from sessions after take it

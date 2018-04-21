@@ -46,4 +46,14 @@ class UserValidation extends Validator
         return $this;
     }
 
+    /**
+     * validate user search to get companies that serve the target
+     * @param $Request
+     * @return $this
+     */
+    public function validateUserSearch($Request)
+    {
+        $validation = $this->validate($Request,['LocationTarget'  => v::noWhitespace()->notEmpty()->alnum(),]);
+        return $this;
+    }
 }

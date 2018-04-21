@@ -71,6 +71,15 @@ $container['AuthController']=function ($container){
 $container['Auth']=function ($container){
     return new \App\API\Auth\Auth($container);
 };
+/**
+ * store object from user controller
+ * @param $container
+ * @return \App\API\Controllers\UserController
+ */
+
+$container['UserController']=function ($container){
+    return new App\API\Controllers\UserController($container);
+};
 
 
 

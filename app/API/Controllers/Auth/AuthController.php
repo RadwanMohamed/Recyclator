@@ -28,7 +28,7 @@ class AuthController extends Controller
     public function userSignup($Request,$Response){
         $validation = $this->UserValidation->validateUserToSignup($Request);
 
-        if ($validation->failed()){
+        if (!$validation->failed()){
             $user =  User::create([
                 'FirstName' => $Request->getParam('FirstName'),
                 'LastName'  => $Request->getParam('LastName'),
@@ -62,7 +62,7 @@ class AuthController extends Controller
      */
     public function userSignin($Request,$Response){
         $validation = $this->UserValidation->validateUserToSignin($Request);
-        if ($validation->failed()) {
+        if (!$validation->failed()) {
             $auth = $this->Auth->attempt($Request->getParam('Email'), $Request->getParam('Password'));
             if ($auth){
             $response['status'] = 'success';
@@ -103,7 +103,7 @@ class AuthController extends Controller
     public function companySignup($Request,$Response){
         $companyValidation = $this->CompanyValidation->validateCompanyToSignup($Request);
 
-        if ($companyValidation->failed()){
+        if (!$companyValidation->failed()){
             $company =  Company::create([
                 'Name' => $Request->getParam('Name'),
                 'Bio'  => $Request->getParam('Bio'),
@@ -139,7 +139,7 @@ class AuthController extends Controller
 
     public function companySignin($Request,$Response){
         $companyValidation = $this->CompanyValidation->validateCompanyToSignin($Request);
-        if ($companyValidation->failed()) {
+        if (!$companyValidation->failed()) {
             $companyAuth = $this->Auth->companyAttempt($Request->getParam('Email'), $Request->getParam('Password'));
             if ($companyAuth){
                 $response['status'] = 'success';
@@ -170,3 +170,14 @@ class AuthController extends Controller
 
 
 }
+/**
+"Name": "omarfffffahoofffcom",
+"LastName":"gvdhfbf",
+"Bio": "fhffh",
+"Phone": "012011478",
+"Email":"radwanmohamegggd334@gmail.com",
+"Image":"fhhghg",
+"Password": "hhghs",
+"district":"fkjff",
+"LocationTarget":"dndfnf"
+ */

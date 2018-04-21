@@ -44,7 +44,6 @@ class Validator
      * @return bool
      */
     public function failed(){
-
-        return empty($this->errors);
+       return !empty($this->errors);
     }
 }
