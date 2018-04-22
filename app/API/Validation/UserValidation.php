@@ -56,4 +56,5 @@ class UserValidation extends Validator
         $validation = $this->validate($Request,['LocationTarget'  => v::noWhitespace()->notEmpty()->alnum(),]);
         return $this;
     }
+
 }

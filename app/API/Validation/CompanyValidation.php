@@ -10,6 +10,10 @@ namespace App\API\Validation;
 
 use Respect\Validation\Validator as V;
 
+/**
+ * Class CompanyValidation to validate company inputs
+ * @package App\API\Validation
+ */
 class CompanyValidation  extends Validator
 {
     //`Name`, `Email`, `Phone`, `Bio`, `Password`, `District`, `Image`, `HashTable`, `LocationTarget`

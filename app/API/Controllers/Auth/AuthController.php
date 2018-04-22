@@ -170,14 +170,3 @@ class AuthController extends Controller
 
 
 }
-/**
-"Name": "omarfffffahoofffcom",
-"LastName":"gvdhfbf",
-"Bio": "fhffh",
-"Phone": "012011478",
-"Email":"radwanmohamegggd334@gmail.com",
-"Image":"fhhghg",
-"Password": "hhghs",
-"district":"fkjff",
-"LocationTarget":"dndfnf"
- */

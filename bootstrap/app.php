@@ -45,6 +45,23 @@ $container['CompanyValidation']=function ($container){
 };
 
 /**
+ *  stores Requests validation  obj
+ * @param $container
+ * @return \App\API\Validation\CompanyValidation
+ */
+$container['RequestValidation']=function ($container){
+    return new App\API\Validation\RequestValidation($container);
+};
+/**
+ *  stores Material validation  obj
+ * @param $container
+ * @return \App\API\Validation\CompanyValidation
+ */
+$container['MaterialTypeValidation']=function ($container){
+    return new App\API\Validation\MaterialTypeValidation($container);
+};
+
+/**
  * stores user HomeController  obj
  * @param $container
  * @return \App\API\Controllers\HomeController
@@ -61,6 +78,22 @@ $container['HomeController']=function ($container){
  */
 $container['AuthController']=function ($container){
     return new App\API\Controllers\Auth\AuthController($container);
+};
+/**
+ * store object from Request controller
+ * @param $container
+ * @return \App\API\Controllers\Auth\AuthController
+ */
+$container['RequestController']=function ($container){
+    return new App\API\Controllers\RequestController($container);
+};
+/**
+ * store object from Request controller
+ * @param $container
+ * @return \App\API\Controllers\Auth\AuthController
+ */
+$container['MaterialTypeController']=function ($container){
+    return new App\API\Controllers\MaterialTypeController($container);
 };
 /**
  * store object from Auth controller
@@ -91,6 +124,7 @@ $capsule->bootEloquent();
 $container['db']=function ($container) use ($capsule){
     return $capsule;
 };
+
 /**
  * middleware to check some errors that appears
  */

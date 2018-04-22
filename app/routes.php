@@ -22,6 +22,15 @@ $app->post('/company/signup',"AuthController:companySignup");
 $app->post('/company/signin',"AuthController:companySignin");
 $app->post('/company/signout',"AuthController:companySignOut");
 
+// Requests
+$app->get('/request',"RequestController:index");
+$app->post('/request',"RequestController:create");
+
+
+// materials
+
+$app->get('/material','MaterialTypeController:index');
+$app->Post('/material','MaterialTypeController:create');
 /*
  *
  $app->group('',function ()use ($app){

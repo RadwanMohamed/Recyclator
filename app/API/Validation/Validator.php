@@ -10,6 +10,10 @@ namespace App\API\Validation;
 use Respect\Validation\Exceptions\NestedValidationException;
 use  Respect\Validation\Validator as Respect;
 
+/**
+ * Class Validator base class
+ * @package App\API\Validation
+ */
 class Validator
 {
     /**
