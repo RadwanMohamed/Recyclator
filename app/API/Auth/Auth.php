@@ -61,7 +61,7 @@ class Auth
     }
 
 
-                // Company Auth functions
+                // CompanyController Auth functions
 
     /**
      * check if the company is exists or not

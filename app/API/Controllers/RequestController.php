@@ -19,8 +19,10 @@ class RequestController extends Controller
      * @return mixed
      */
     public function index($Request,$Response){
+
         $requests = Request::all();
-        return $Response->withJson($requests);
+        dd($requests[0]->Companies);
+        //return $Response->withJson($requests);
     }
 
     /**
@@ -46,6 +48,7 @@ class RequestController extends Controller
      */
     public function create($Request,$Response){
         $validation = $this->RequestValidation->ValidateRequest($Request);
+
         if (!$validation->failed()){
             $request = Request::create([
                 'Name' => $Request->getParam('Name'),

@@ -8,17 +8,23 @@
 
 namespace App\API\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Company model
+ * Class CompanyController model
  * @package App\API\Models
  */
 class Company extends Model
 {
+
     //`Name`, `Email`, `Phone`, `Bio`, `Password`, `District`, `Image`, `HashTable`, `LocationTarget`
     protected $fillable =[
         'Name','Email','Phone','Bio','Password','District','Image','district','LocationTarget'
     ];
+    public function requests()
+    {
+        return $this->belongsToMany("App\API\Models\Request","company_requests");
+
+    }
+
 }

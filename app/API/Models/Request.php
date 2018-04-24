@@ -20,4 +20,7 @@ class Request extends Model
     protected $fillable=[
         'Name', 'quantity', 'SuggetedPrice', 'Image', 'User_ID'
     ];
+    public function Companies(){
+        return $this->belongsToMany("App\API\Models\Company","company_requests",'Request_ID','Company_ID');
+    }
 }

@@ -10,6 +10,7 @@ class ComposerStaticInitf8f5fcdc5830c4e74288bb07ab84beb4
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        '7745382c92b7799bf1294b1f43023ba2' => __DIR__ . '/..' . '/tracy/tracy/src/shortcuts.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -25,6 +26,7 @@ class ComposerStaticInitf8f5fcdc5830c4e74288bb07ab84beb4
         ),
         'R' => 
         array (
+            'RunTracy\\' => 9,
             'Respect\\Validation\\' => 19,
         ),
         'P' => 
@@ -88,6 +90,10 @@ class ComposerStaticInitf8f5fcdc5830c4e74288bb07ab84beb4
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
+        ),
+        'RunTracy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/runcmf/runtracy/src/RunTracy',
         ),
         'Respect\\Validation\\' => 
         array (
@@ -157,12 +163,28 @@ class ComposerStaticInitf8f5fcdc5830c4e74288bb07ab84beb4
         ),
     );
 
+    public static $classMap = array (
+        'Tracy\\Bar' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Bar.php',
+        'Tracy\\BlueScreen' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/BlueScreen.php',
+        'Tracy\\Bridges\\Nette\\TracyExtension' => __DIR__ . '/..' . '/tracy/tracy/src/Bridges/Nette/TracyExtension.php',
+        'Tracy\\Debugger' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Debugger.php',
+        'Tracy\\DefaultBarPanel' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/DefaultBarPanel.php',
+        'Tracy\\Dumper' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Dumper.php',
+        'Tracy\\FireLogger' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/FireLogger.php',
+        'Tracy\\Helpers' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Helpers.php',
+        'Tracy\\IBarPanel' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/IBarPanel.php',
+        'Tracy\\ILogger' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/ILogger.php',
+        'Tracy\\Logger' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/Logger.php',
+        'Tracy\\OutputDebugger' => __DIR__ . '/..' . '/tracy/tracy/src/Tracy/OutputDebugger.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitf8f5fcdc5830c4e74288bb07ab84beb4::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitf8f5fcdc5830c4e74288bb07ab84beb4::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitf8f5fcdc5830c4e74288bb07ab84beb4::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf8f5fcdc5830c4e74288bb07ab84beb4::$classMap;
 
         }, null, ClassLoader::class);
     }

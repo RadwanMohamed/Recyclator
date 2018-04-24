@@ -96,6 +96,14 @@ $container['MaterialTypeController']=function ($container){
     return new App\API\Controllers\MaterialTypeController($container);
 };
 /**
+ * store object from Companycontroller
+ * @param $container
+ * @return \App\API\Controllers\Auth\AuthController
+ */
+$container['CompanyController']=function ($container){
+    return new App\API\Controllers\CompanyController($container);
+};
+/**
  * store object from Auth controller
  * @param $container
  * @return \App\API\Auth\Auth

@@ -12,6 +12,7 @@ $app->get('/',"HomeController:index");
 $app->post('/signup',"AuthController:userSignup");
 $app->post('/signin',"AuthController:userSignin");
 $app->post('/signout',"AuthController:userSignOut");
+$app->post('/request/make',"UserController:makeRequest");
 
 //search companies by user routes
 $app->post('/search',"UserController:index");
@@ -21,6 +22,7 @@ $app->post('/search',"UserController:index");
 $app->post('/company/signup',"AuthController:companySignup");
 $app->post('/company/signin',"AuthController:companySignin");
 $app->post('/company/signout',"AuthController:companySignOut");
+$app->post('/company/requests',"CompanyController:index");
 
 // Requests
 $app->get('/request',"RequestController:index");
@@ -28,7 +30,6 @@ $app->post('/request',"RequestController:create");
 
 
 // materials
-
 $app->get('/material','MaterialTypeController:index');
 $app->Post('/material','MaterialTypeController:create');
 /*

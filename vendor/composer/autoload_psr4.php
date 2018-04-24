@@ -13,6 +13,7 @@ return array(
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Symfony\\Component\\Config\\' => array($vendorDir . '/symfony/config'),
     'Slim\\' => array($vendorDir . '/slim/slim/Slim'),
+    'RunTracy\\' => array($vendorDir . '/runcmf/runtracy/src/RunTracy'),
     'Respect\\Validation\\' => array($vendorDir . '/respect/validation/library'),
     'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),

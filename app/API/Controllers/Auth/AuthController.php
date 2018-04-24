@@ -42,6 +42,7 @@ class AuthController extends Controller
             if ($user) {
                 $auth = $this->Auth->attempt($user->Email, $Request->getParam('Password'));
                 $response['message'] = "sign up operation completed";
+                $response['type'] = 'user';
                 $response['status'] = 'success';
                 return $Response->withJson($response, 200);
             }else{
@@ -66,6 +67,7 @@ class AuthController extends Controller
             $auth = $this->Auth->attempt($Request->getParam('Email'), $Request->getParam('Password'));
             if ($auth){
             $response['status'] = 'success';
+            $response['status'] = 'user';
             $response['message'] = 'you are login it';
             return $Response->withJson($response, 200);
             }
@@ -86,6 +88,7 @@ class AuthController extends Controller
     public function userSignOut($Request,$Response){
         $this->Auth->logOut();
         $response['status']='success';
+        $response['type']='user';
         $response['message']='you are logged out';
         return $Response->withJson($response,200);
     }
@@ -118,6 +121,7 @@ class AuthController extends Controller
             if ($company) {
                 $companyAuth = $this->Auth->companyAttempt($company->Email, $Request->getParam('Password'));
                 $response['message'] = "sign up operation completed";
+                $response['type'] = 'company';
                 $response['status'] = 'success';
                 return $Response->withJson($response, 200);
             }else{
@@ -143,6 +147,7 @@ class AuthController extends Controller
             $companyAuth = $this->Auth->companyAttempt($Request->getParam('Email'), $Request->getParam('Password'));
             if ($companyAuth){
                 $response['status'] = 'success';
+                $response['type'] = 'company';
                 $response['message'] = 'you are login it';
                 return $Response->withJson($response, 200);
             }
@@ -164,6 +169,7 @@ class AuthController extends Controller
     public function companySignOut($Request,$Response){
          $this->Auth->companyLogOut();
         $response['status']='success';
+        $response['type']='company';
         $response['message']='you are logged out';
         return $Response->withJson($response,200);
     }
