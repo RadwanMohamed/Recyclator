@@ -54,5 +54,17 @@ class CompanyValidation  extends Validator
         ]);
         return $this;
     }
-
+    /**
+     * validate company  action form to update action
+     * @param $Request
+     * @return $this
+     */
+    public function validateAction($Request)
+    {
+        $validation = $this->validate($Request,[
+            'id'     => v::noWhitespace()->notEmpty()->intVal(),
+            'Status'     => v::noWhitespace()->boolVal(),
+        ]);
+        return $this;
+    }
 }

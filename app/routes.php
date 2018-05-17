@@ -23,6 +23,7 @@ $app->post('/company/signup',"AuthController:companySignup");
 $app->post('/company/signin',"AuthController:companySignin");
 $app->post('/company/signout',"AuthController:companySignOut");
 $app->post('/company/requests',"CompanyController:index");
+$app->post('/company/requests/action',"CompanyController:action");
 
 // Requests
 $app->get('/request',"RequestController:index");

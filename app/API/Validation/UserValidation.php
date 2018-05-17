@@ -59,7 +59,6 @@ class UserValidation extends Validator
 
     public function validateUserRequest($Request){
         $validation = $this->validate($Request,[
-            'Status'     => V::noWhitespace()->notEmpty()->boolVal(),
            'Request_ID' => V::noWhitespace()->notEmpty()->intVal(),
            'Company_ID' => V::noWhitespace()->notEmpty()->intVal()
         ]);

@@ -21,8 +21,7 @@ class RequestController extends Controller
     public function index($Request,$Response){
 
         $requests = Request::all();
-        dd($requests[0]->Companies);
-        //return $Response->withJson($requests);
+        return $Response->withJson($requests);
     }
 
     /**

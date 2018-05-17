@@ -46,7 +46,7 @@ namespace App\API\Controllers;
         $validation = $this->UserValidation->validateUserRequest($Request);
         if (!$validation->failed()){
             $request = CompanyRequests::create([
-                'Status' => $Request->getParam('Status'),
+                'Status' => -1,
                 'Request_ID' => $Request->getParam('Request_ID'),
                 'Company_ID' => $Request->getParam('Company_ID')
             ]);

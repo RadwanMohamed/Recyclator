@@ -37,5 +37,23 @@ class CompanyController extends Controller
         }
     }
 
+    public function action($Request,$Response){
+        $validation = $this->CompanyValidation->validateAction($Request);
+        if (!$validation->failed()) {
+            $status = CompanyRequests::where('id', $Request->getParam('id'))->update([
+                'Status' => $Request->getParam('Status')
+            ]);
+            if ($status){
+                $data["status"] = 'success';
+                $data["message"] = 'your response is recorded';
+                return $Response->withJson($data,200);
+            }else{
+                $data["status"] = 'failed';
+                $data["message"] = 'something is wrong';
+                return $Response->withJson($data,422);
+            }
+        }
+    }
+
 
 }
