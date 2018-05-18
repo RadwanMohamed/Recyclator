@@ -10,7 +10,7 @@
 /*
  * include vendors and settings containing file
  */
-require __DIR__ . '/bootstrap/app.php';
+require __DIR__ . '/../bootstrap/app.php';
 
 
 /*
