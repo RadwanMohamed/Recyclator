@@ -13,6 +13,7 @@ $app->post('/signup',"AuthController:userSignup");
 $app->post('/signin',"AuthController:userSignin");
 $app->post('/signout',"AuthController:userSignOut");
 $app->post('/request/make',"UserController:makeRequest");
+$app->get('/users',"UserController:users");
 
 //search companies by user routes
 $app->get('/search/{LocationTarget}',"UserController:index");
@@ -24,6 +25,8 @@ $app->post('/company/signin',"AuthController:companySignin");
 $app->post('/company/signout',"AuthController:companySignOut");
 $app->post('/company/requests',"CompanyController:index");
 $app->post('/company/requests/action',"CompanyController:action");
+$app->get('/companies',"CompanyController:companies");
+
 
 // Requests
 $app->get('/request',"RequestController:index");

@@ -62,6 +62,18 @@ namespace App\API\Controllers;
             }
         }
     }
+    /**
+     * return all users
+     * @param  [mixed] $Request  [description]
+     * @param  [mixed] $Response [description]
+     * @return [mixed]           [description]
+     */
+    public function users($Request,$Response){
+        $users = User::all();
+        return $Response->withJson($users);
+
+    }
+
 
 
 }

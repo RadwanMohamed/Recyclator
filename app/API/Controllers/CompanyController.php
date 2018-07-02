@@ -36,7 +36,12 @@ class CompanyController extends Controller
             return $Response->withJson($data,422);
         }
     }
-
+/**
+ * this methof is to store the company decision about specific request
+ * @param  [object] $Request  [the request that is coming from user]
+ * @param  [object] $Response [the return response]
+ * @return [mixed]           
+ */
     public function action($Request,$Response){
         $validation = $this->CompanyValidation->validateAction($Request);
         if (!$validation->failed()) {
@@ -53,6 +58,17 @@ class CompanyController extends Controller
                 return $Response->withJson($data,422);
             }
         }
+    }
+    /**
+     * return all companies
+     * @param  [mixed] $Request  [description]
+     * @param  [mixed] $Response [description]
+     * @return [mixed]           [description]
+     */
+    public function companies($Request,$Response){
+        $companies = Company::all();
+        return $Response->withJson($companies);
+
     }
 
 
