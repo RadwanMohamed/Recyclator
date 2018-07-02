@@ -14,6 +14,8 @@ $app->post('/signin',"AuthController:userSignin");
 $app->post('/signout',"AuthController:userSignOut");
 $app->post('/request/make',"UserController:makeRequest");
 $app->get('/users',"UserController:users");
+$app->Post('/user/map',"UserController:setMaps");
+$app->Post('/user/rate',"UserController:rate");
 
 //search companies by user routes
 $app->get('/search/{LocationTarget}',"UserController:index");
@@ -26,6 +28,8 @@ $app->post('/company/signout',"AuthController:companySignOut");
 $app->post('/company/requests',"CompanyController:index");
 $app->post('/company/requests/action',"CompanyController:action");
 $app->get('/companies',"CompanyController:companies");
+$app->post('/company/map',"CompanyController:setMaps");
+$app->post('/company/rate',"CompanyController:rate");
 
 
 // Requests

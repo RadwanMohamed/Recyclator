@@ -67,4 +67,30 @@ class CompanyValidation  extends Validator
         ]);
         return $this;
     }
+    /**
+     * [validateToMap validate the data to set map]
+     * @param  [type] $Request [description]
+     * @return [type]          [description]
+     */
+    public function validateToMap($Request){
+        $validation = $this->validate($Request,[
+            'id'     => v::noWhitespace()->notEmpty()->intVal(),
+            'width'  => v::noWhitespace()->notEmpty()->FloatVal(),
+            'height' => v::noWhitespace()->notEmpty()->FloatVal(),
+        ]);
+        return $this;
+    }
+     /**
+     * [validateToMap validate the data to set rate]
+     * @param  [type] $Request [description]
+     * @return [type]          [description]
+     */
+    public function validaterate($Request){
+        $validation = $this->validate($Request,[
+            'id'     => v::noWhitespace()->notEmpty()->intVal(),
+            'rate'  => v::noWhitespace()->notEmpty()->FloatVal(),
+           
+        ]);
+        return $this;
+    }
 }

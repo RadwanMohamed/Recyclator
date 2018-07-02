@@ -70,6 +70,62 @@ class CompanyController extends Controller
         return $Response->withJson($companies);
 
     }
+    /**
+     * [setMaps taked the coordination of the company in the map and sets it in the DB]
+     * @param [Mixed] $Request  [description]
+     * @param [Mixed] $Response json
+     */
+    public function setMaps($Request,$Response){
+        $validation = $this->CompanyValidation->validateToMap($Request);
+
+         if (!$validation->failed()) {
+            $map = Company::where('id',$Request->getParam('id'))->update([
+                    'width' => $Request->getParam('width'),
+                    'height' => $Request->getParam('height')
+            ]);
+            
+            
+            if ($map) {
+                $data["status"] = 'success';
+                $data["message"] = 'your response is recorded';
+                return $Response->withJson($data,200);
+            }else
+            {
+                $data["status"] = 'failed';
+                $data["message"] = 'something is wrong';
+                return $Response->withJson($data,422);
+            }
+         }
+
+    }
+    /**
+     *store company rate
+     * @param  [type] $Request  [description]
+     * @param  [type] $Response [description]
+     * @return [type]           [description]
+     */
+     public function rate($Request,$Response){
+              $validation = $this->CompanyValidation->validaterate($Request);
+               if (!$validation->failed()) {
+                    $rate = Company::where('id',$Request->getParam('id'))->update([
+                    'rate' => $Request->getParam('rate'),
+                    
+            ]);
+            
+            
+            if ($rate) {
+                $data["status"] = 'success';
+                $data["message"] = 'your response is recorded';
+                return $Response->withJson($data,200);
+            }else
+            {
+                $data["status"] = 'failed';
+                $data["message"] = 'something is wrong';
+                return $Response->withJson($data,422);
+            }
+               }
+    }
+
 
 
 }

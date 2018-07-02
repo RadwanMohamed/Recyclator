@@ -19,7 +19,7 @@ class Company extends Model
 
     //`Name`, `Email`, `Phone`, `Bio`, `Password`, `District`, `Image`, `HashTable`, `LocationTarget`
     protected $fillable =[
-        'Name','Email','Phone','Bio','Password','District','Image','district','LocationTarget'
+        'Name','Email','Phone','Bio','Password','District','Image','district','LocationTarget','height','width','rate'
     ];
     public function requests()
     {
