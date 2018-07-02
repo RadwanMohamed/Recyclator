@@ -12,6 +12,7 @@ namespace App\API\Controllers;
  use App\API\Models\Company;
  use App\API\Models\User;
  use App\API\Models\CompanyRequests;
+ use App\API\Models\Request;
 
  class UserController extends Controller
 {
@@ -127,6 +128,17 @@ public function setMaps($Request,$Response){
                 return $Response->withJson($data,422);
             }
                }
+    }
+    /**
+     * return all requests for specific user
+     * @param  [type] $Request  [description]
+     * @param  [type] $Response [description]
+     * @return [type]           [description]
+     */
+    public function requests($Request,$Response){
+          $id = intval($Request->getAttribute('id')); 
+          $data = Request::where('User_ID',$id)->get();
+          return $Response->withJson($data,200);
     }
 
 }

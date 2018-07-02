@@ -14,6 +14,7 @@ $app->post('/signin',"AuthController:userSignin");
 $app->post('/signout',"AuthController:userSignOut");
 $app->post('/request/make',"UserController:makeRequest");
 $app->get('/users',"UserController:users");
+$app->get('/user/{id}/approvedrequests',"UserController:requests");
 $app->Post('/user/map',"UserController:setMaps");
 $app->Post('/user/rate',"UserController:rate");
 
@@ -28,6 +29,7 @@ $app->post('/company/signout',"AuthController:companySignOut");
 $app->post('/company/requests',"CompanyController:index");
 $app->post('/company/requests/action',"CompanyController:action");
 $app->get('/companies',"CompanyController:companies");
+$app->get('/company/{id}/approvedrequests',"CompanyController:requests");
 $app->post('/company/map',"CompanyController:setMaps");
 $app->post('/company/rate',"CompanyController:rate");
 

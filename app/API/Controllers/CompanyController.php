@@ -123,7 +123,19 @@ class CompanyController extends Controller
                 $data["message"] = 'something is wrong';
                 return $Response->withJson($data,422);
             }
-               }
+        }
+    }
+    /**
+     * return all approved requests
+     * @param  [type] $Request  [description]
+     * @param  [type] $Response [description]
+     * @return [type]           [description]
+     */
+    public function requests($Request,$Response){
+          $id = intval($Request->getAttribute('id')); 
+          $data = CompanyRequests::where('company_id',$id)
+          ->where('Status',1)->get();
+          return $Response->withJson($data,200);
     }
 
 
