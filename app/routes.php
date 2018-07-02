@@ -15,7 +15,7 @@ $app->post('/signout',"AuthController:userSignOut");
 $app->post('/request/make',"UserController:makeRequest");
 
 //search companies by user routes
-$app->post('/search',"UserController:index");
+$app->get('/search/{LocationTarget}',"UserController:index");
 
 
 // company routes

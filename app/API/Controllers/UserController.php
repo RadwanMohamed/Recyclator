@@ -25,7 +25,7 @@ namespace App\API\Controllers;
 
         $validation = $this->UserValidation->validateUserSearch($Request);
         if (!$validation->failed()){
-            $target = $Request->getParam('LocationTarget');
+            $target = $Request->getAttribute('LocationTarget');
             $companies = Company::where('LocationTarget','LIKE',"%$target%")->get();
             if ($companies->isNotEmpty()){
                 return $Response->withJson($companies);
