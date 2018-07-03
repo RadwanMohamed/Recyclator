@@ -140,5 +140,14 @@ public function setMaps($Request,$Response){
           $data = Request::where('User_ID',$id)->get();
           return $Response->withJson($data,200);
     }
-
+    /**
+     * return rate, width, and height from company
+     * @param  mixed $Request  
+     * @param  mixed $Response 
+     * @return mixed           
+     */
+    public function getRate($Request,$Response){
+        $data = User::select('id','width','height','rate')->get();
+        return $Response->withJson($data,200);
+    }
 }
