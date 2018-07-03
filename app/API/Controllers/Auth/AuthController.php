@@ -66,6 +66,7 @@ class AuthController extends Controller
         if (!$validation->failed()) {
             $auth = $this->Auth->attempt($Request->getParam('Email'), $Request->getParam('Password'));
             if ($auth){
+            $response['id']     = $_SESSION['user'];                
             $response['status'] = 'success';
             $response['status'] = 'user';
             $response['message'] = 'you are login it';
