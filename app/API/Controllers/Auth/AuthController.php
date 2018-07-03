@@ -147,6 +147,7 @@ class AuthController extends Controller
         if (!$companyValidation->failed()) {
             $companyAuth = $this->Auth->companyAttempt($Request->getParam('Email'), $Request->getParam('Password'));
             if ($companyAuth){
+                $response['id']     = $_SESSION['company']; 
                 $response['status'] = 'success';
                 $response['type'] = 'company';
                 $response['message'] = 'you are login it';
