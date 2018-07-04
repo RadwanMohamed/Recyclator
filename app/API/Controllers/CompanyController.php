@@ -147,5 +147,16 @@ class CompanyController extends Controller
         $data = Company::select('id','width','height','rate')->get();
         return $Response->withJson($data,200);
     }
+    /**
+     * return company by id  
+     * @param  [type] $Request  [description]
+     * @param  [$Response]  [description]
+     * @return mixed   company
+     */
+    public function get($Request, $Response){
+            $id = intval($Request->getAttribute());
+            $data = Company::where('id',$id)->get();
+            return $Response->withJson($data,200);
+    }
 
 }

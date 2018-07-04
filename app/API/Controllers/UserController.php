@@ -150,4 +150,15 @@ public function setMaps($Request,$Response){
         $data = User::select('id','width','height','rate')->get();
         return $Response->withJson($data,200);
     }
+       /**
+     * return user by id  
+     * @param  [type] $Request  [description]
+     * @param  [$Response]  [description]
+     * @return mixed   company
+     */
+    public function get($Request, $Response){
+            $id = intval($Request->getAttribute());
+            $data = User::where('id',$id)->get();
+            return $Response->withJson($data,200);
+    }
 }

@@ -18,6 +18,7 @@ $app->get('/user/{id}/approvedrequests',"UserController:requests");
 $app->Post('/user/map',"UserController:setMaps");
 $app->Post('/user/rate',"UserController:rate");
 $app->get('/user/rate',"UserController:getRate");
+$app->get('/user/{id}',"UserController:get");
 
 //search companies by user routes
 $app->get('/search/{LocationTarget}',"UserController:index");
@@ -34,6 +35,7 @@ $app->get('/company/{id}/approvedrequests',"CompanyController:requests");
 $app->post('/company/map',"CompanyController:setMaps");
 $app->post('/company/rate',"CompanyController:rate");
 $app->get('/company/rate',"CompanyController:getRate");
+$app->get('/company/{id}',"CompanyController:get");
 
 
 // Requests
