@@ -154,7 +154,7 @@ class CompanyController extends Controller
      * @return mixed   company
      */
     public function get($Request, $Response){
-            $id = intval($Request->getAttribute());
+            $id = intval($Request->getAttribute('id'));
             $data = Company::where('id',$id)->get();
             return $Response->withJson($data,200);
     }

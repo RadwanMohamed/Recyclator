@@ -21,6 +21,8 @@ class RequestController extends Controller
     public function index($Request,$Response){
 
         $requests = Request::all();
+        print_r($requests[0]);
+        die(); 
         return $Response->withJson($requests);
     }
 

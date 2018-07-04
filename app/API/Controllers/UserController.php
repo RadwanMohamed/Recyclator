@@ -157,7 +157,7 @@ public function setMaps($Request,$Response){
      * @return mixed   company
      */
     public function get($Request, $Response){
-            $id = intval($Request->getAttribute());
+            $id = intval($Request->getAttribute('id'));
             $data = User::where('id',$id)->get();
             return $Response->withJson($data,200);
     }

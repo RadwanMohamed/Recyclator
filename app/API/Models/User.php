@@ -22,4 +22,7 @@ class User extends Model
     protected $fillable =[
         'FirstName','LastName','Email','Phone','Password','Image','district','width','height','rate'
     ];
+    public function request(){
+ 		return $this->hasMany('App\API\Models\Request');
+     }
 }
