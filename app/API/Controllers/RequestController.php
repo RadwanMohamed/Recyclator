@@ -19,11 +19,13 @@ class RequestController extends Controller
      * @return mixed
      */
     public function index($Request,$Response){
-
+        $data =[];
         $requests = Request::all();
-        print_r($requests[0]);
-        die(); 
-        return $Response->withJson($requests);
+        for ($i=0; $i < count($requests) ; $i++) { 
+            $data[$i] = $requests[$i] . $requests[$i]->user;
+        }
+      return $Response->withJson($data,200);
+
     }
 
     /**

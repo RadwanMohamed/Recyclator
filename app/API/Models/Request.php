@@ -24,6 +24,6 @@ class Request extends Model
         return $this->belongsToMany("App\API\Models\Company","company_requests",'Request_ID','Company_ID');
     }
     public function user(){
- 		return $this->belongsTo('App\API\Models\User');
+ 		return $this->belongsTo('App\API\Models\User',"User_ID");
      }
 }
